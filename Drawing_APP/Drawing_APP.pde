@@ -4,13 +4,19 @@ int drawMode = 0;
 //0: ellipse
 //1: text
 
+//we are going to change this with z and x
+float brushSize =10;
 
 void setup(){
 size(700,700);
+background(255);
+noStroke();
 }
 
 
 void draw(){
+  if (mousePressed){
+    
  if (drawMode == 1){
   //ellipse mode
   ellipse(mouseX, mouseY, 10, 10);
@@ -18,6 +24,11 @@ void draw(){
 if (drawMode == 2){
   //text mode
   text("HELLO", mouseX, mouseY);
+  
+  if (drawMode == 3){
+   rect ( mouseX, mouseY, 1, 100);
+  }
+}
 }
 }
 void keyPressed(){
@@ -40,5 +51,13 @@ void keyPressed(){
   }
   if (key == 'b') {
     fill(0, 0, 255);
+  }
+  
+  //set brush size
+  if (key == 'z') {
+   brushSize = 10; 
+  }
+  if (key == 'x') {
+    brushSize = 30;
   }
 }
