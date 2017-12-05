@@ -4,7 +4,7 @@ Servo servoX;  // create servo object to control an X axis servo
  
 int servoXPin = 9;  // what pins are our servos connected to?
  
-int posY = 0;    // variable to store the servo position
+int posX = 0;    // variable to store the servo position
  
 void setup() {
   Serial.begin(9600);  // we're gonna use serial comm.
@@ -18,9 +18,9 @@ void loop() {
   if (Serial.available() > 0) {
  
     // read the incoming bytes
-    posY = Serial.read();
+    posX = Serial.read();
   }
  
   // "write" for a servo motor just tells it what angle to go to
-  servoX.write(posY);
+  servoX.write(posX);
 }
